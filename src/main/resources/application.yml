@@ -10,6 +10,11 @@ spring:
     password:
     driver-class-name: org.h2.Driver
   jpa:
+    properties:
+      hibernate:
+          format_sql: true
+          highlight_sql: true
+          use_sql_comments: true
     hibernate:
       ddl-auto: update # db 데이터 누적
-      show-sql: true #sql을 console에서 볼 수 있도록
+    show-sql: true #sql을 console에서 볼 수 있도록
