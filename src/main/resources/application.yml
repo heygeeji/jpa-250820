@@ -9,4 +9,7 @@ spring:
     username: sa
     password:
     driver-class-name: org.h2.Driver
-
+  jpa:
+    hibernate:
+      ddl-auto: create #jpa한테 ddl을 자동으로 해라
+      show-sql: true #sql을 consol에서 볼 수 있도록
