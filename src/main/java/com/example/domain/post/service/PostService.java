@@ -2,16 +2,18 @@ package com.example.domain.post.service;
 
 import com.example.domain.post.entity.Post;
 import com.example.domain.post.repository.PostRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class PostService {
 
-    @Autowired
-    private PostRepository postRepository;
+    private final PostRepository postRepository;
+
 
     public void write(String title, String content) {
         //비즈니스 로직(검증) if

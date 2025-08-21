@@ -2,7 +2,7 @@ package com.example.global.initData;
 
 import com.example.domain.post.entity.Post;
 import com.example.domain.post.service.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,13 +10,14 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Optional;
 
 @Configuration
+@RequiredArgsConstructor
 public class BaseInitData {
 
-    private PostService postService;
+    private final PostService postService; // 재사용 가능하기 때문에 final
 
-    public BaseInitData(PostService postService) {
-        this.postService = postService;
-    }
+//    public BaseInitData(PostService postService) {
+//        this.postService = postService;
+//    }
 
     @Bean
     ApplicationRunner initDataRunner() { //application 실행될 때 딱 한번 실행
