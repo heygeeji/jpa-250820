@@ -12,8 +12,11 @@ import java.util.Optional;
 @Configuration
 public class BaseInitData {
 
-    @Autowired
     private PostService postService;
+
+    public BaseInitData(PostService postService) {
+        this.postService = postService;
+    }
 
     @Bean
     ApplicationRunner initDataRunner() { //application 실행될 때 딱 한번 실행
