@@ -23,7 +23,10 @@ public class BaseInitData {
 //
 //            postRepository.save(post1);
 
-            postRepository.count(); // select count(*) from post;
+//            postRepository.count(); // select count(*) from post;
+
+            postRepository.findById(1);
+            // select * from post where id = 1;
         };
     }
 }

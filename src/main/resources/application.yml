@@ -18,3 +18,8 @@ spring:
     hibernate:
       ddl-auto: update # db 데이터 누적
     show-sql: true #sql을 console에서 볼 수 있도록
+
+logging:
+  level:
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.orm.jdbc.extract: TRACE
