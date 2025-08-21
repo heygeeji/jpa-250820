@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 
 @Entity
 @Setter
@@ -23,10 +25,16 @@ public class Post {
     private String content;
     //제목, 내용은 수정 가능성이 있기 때문에 final은 안쓰는게 맞음.
 
+    private LocalDateTime createDate;
+    private LocalDateTime modifyDate;
+
 //    public Post(){} //기본 생성자 ->Post 빨간 줄 사라짐
 //    //Jpa에서는 기본생성자 요구
 
     public Post(String title, String content) {
+        this.createDate = LocalDateTime.now();
+        this.modifyDate = LocalDateTime.now();
+
         this.title = title;
         this.content = content;
     }
