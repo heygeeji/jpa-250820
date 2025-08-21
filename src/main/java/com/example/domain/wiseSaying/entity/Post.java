@@ -20,6 +20,14 @@ public class Post {
     @Column(columnDefinition = "TEXT") //안하면 default varchar(255)
     private String content;
 
+    public Post(){} //기본 생성자 ->Post 빨간 줄 사라짐
+    //Jpa에서는 기본생성자 요구
+
+    public Post(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
+
 
 }
 

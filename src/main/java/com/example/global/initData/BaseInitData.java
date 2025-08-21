@@ -1,5 +1,6 @@
 package com.example.global.initData;
 
+import com.example.domain.wiseSaying.entity.Post;
 import com.example.domain.wiseSaying.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
@@ -20,6 +21,8 @@ public class BaseInitData {
 //            Post post1 = new Post();
 //            post1.setTitle("첫 번째 게시글");
 //            post1.setContent("첫 번째 게시글 내용입니다.");
+            Post post1 = new Post("제목1", "내용1");
+            postRepository.save(post1);
 //
 //            postRepository.save(post1);
 
