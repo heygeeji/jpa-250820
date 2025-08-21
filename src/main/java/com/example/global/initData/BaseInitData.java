@@ -23,8 +23,6 @@ public class BaseInitData {
 //            post1.setContent("첫 번째 게시글 내용입니다.");
             Post post1 = new Post("제목1", "내용1");
             postRepository.save(post1);
-//
-//            postRepository.save(post1);
 
 //            postRepository.count(); // select count(*) from post;
 
