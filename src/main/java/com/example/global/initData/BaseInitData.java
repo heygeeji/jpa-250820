@@ -58,16 +58,17 @@ public class BaseInitData {
     }
 
     // 삭제
+    @Transactional
     void work3() {
 
         Post post1 = postService.getPost(1).get();
         Post post2 = postService.getPost(2).get();
 
-        postService.delete(post1);
+        postService.delete(post1); //jpa가 젛해놓은 트랜잭션
 
         if(true) throw new RuntimeException("테스트용 예외 발생");
 
-        postService.delete(post2);
+        postService.delete(post2); //트랜잭션
     }
 }
 
