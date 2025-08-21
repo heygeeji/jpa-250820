@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ public class BaseInitData {
 //    }
 
     @Bean
+    @Transactional
     ApplicationRunner initDataRunner() { //application 실행될 때 딱 한번 실행
         return args -> {
             work1();
@@ -27,7 +29,9 @@ public class BaseInitData {
         };
     }
 
-    void work1() { // 등록
+    // 생성
+    @Transactional
+    void work1() {
 
         if(postService.getTotalCount() > 0) {
             return;
@@ -38,6 +42,8 @@ public class BaseInitData {
         postService.write("제목2", "내용2");
     }
 
+    // 조회
+    @Transactional
     void work2() { //조회
 
         Optional<Post> opPost = postService.getPost(1);
