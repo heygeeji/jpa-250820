@@ -1,4 +1,4 @@
-package com.example.domain.wiseSaying.entity;
+package com.example.domain.post.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
