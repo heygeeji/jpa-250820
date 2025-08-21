@@ -3,7 +3,6 @@ package com.example.domain.post.service;
 import com.example.domain.post.entity.Post;
 import com.example.domain.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -29,5 +28,9 @@ public class PostService {
 
     public long getTotalCount() {
         return postRepository.count();
+    }
+
+    public void delete(Post post) {
+        postRepository.delete(post);
     }
 }

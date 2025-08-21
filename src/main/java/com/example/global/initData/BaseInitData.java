@@ -26,11 +26,14 @@ public class BaseInitData {
 //    }
 
     @Bean
-    @Transactional
+//    @Transactional
     ApplicationRunner initDataRunner() { //application 실행될 때 딱 한번 실행
         return args -> {
             self.work1();
             self.work2();
+            new Thread(() -> {
+                self.work3();
+            }).start(); // springboot가 안꺼지게 해줌.
         };
     }
 
@@ -52,6 +55,19 @@ public class BaseInitData {
     void work2() { //조회
 
         Optional<Post> opPost = postService.getPost(1);
+    }
+
+    // 삭제
+    void work3() {
+
+        Post post1 = postService.getPost(1).get();
+        Post post2 = postService.getPost(2).get();
+
+        postService.delete(post1);
+
+        if(true) throw new RuntimeException("테스트용 예외 발생");
+
+        postService.delete(post2);
     }
 }
 
