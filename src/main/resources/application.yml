@@ -23,3 +23,4 @@ logging:
   level:
     org.hibernate.orm.jdbc.bind: TRACE
     org.hibernate.orm.jdbc.extract: TRACE
+    org.springframework.transaction.interceptor: TRACE # 트랜잭션이 시작하고 끝나는걸 로그로 볼 수 있음
