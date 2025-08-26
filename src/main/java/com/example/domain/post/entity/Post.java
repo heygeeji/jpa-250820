@@ -1,12 +1,12 @@
 package com.example.domain.post.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class Post {
     @Id //jpa는 식별자가 반드시!! 필요
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY) //autoincrement
@@ -25,7 +26,10 @@ public class Post {
     private String content;
     //제목, 내용은 수정 가능성이 있기 때문에 final은 안쓰는게 맞음.
 
+    @CreatedDate
     private LocalDateTime createDate;
+
+    @LastModifiedDate
     private LocalDateTime modifyDate;
 
 //    public Post(){} //기본 생성자 ->Post 빨간 줄 사라짐

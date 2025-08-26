@@ -25,22 +25,6 @@ public class PostService {
         post.setTitle(title);
         post.setContent(content);
 
-        boolean isChanged = false;
-
-        if(!post.getTitle().equals(title)) {
-            post.setTitle(title);
-            isChanged = true;
-        }
-
-        if(!post.getContent().equals(content)) {
-            post.setContent(content);
-            isChanged = true;
-        }
-
-        if(isChanged) {
-            post.setModifyDate(LocalDateTime.now());
-        }
-
         postRepository.save(post);
     }
 
