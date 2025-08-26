@@ -39,7 +39,7 @@ public class BaseInitData {
     }
 
     // 생성
-    @Transactional(re)
+    @Transactional(readOnly=true)
     void work1() {
 
         if(postService.getTotalCount() > 0) {
