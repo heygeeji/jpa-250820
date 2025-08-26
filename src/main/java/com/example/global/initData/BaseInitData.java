@@ -31,14 +31,15 @@ public class BaseInitData {
         return args -> {
             self.work1();
             self.work2();
-            new Thread(() -> {
-                self.work3();
-            }).start(); // springboot가 안꺼지게 해줌.
+//            new Thread(() -> {
+//                self.work3();
+//            }).start(); // springboot가 안꺼지게 해줌.
+            self.work4();
         };
     }
 
     // 생성
-    @Transactional
+    @Transactional(re)
     void work1() {
 
         if(postService.getTotalCount() > 0) {
@@ -69,6 +70,11 @@ public class BaseInitData {
         if(true) throw new RuntimeException("테스트용 예외 발생");
 
         postService.delete(post2); //트랜잭션
+    }
+
+    void work4() {
+        Post post1 = postService.getPost(1).get();
+        postService.modify(post1, "제목1-수정","내용1-수정");
     }
 }
 
