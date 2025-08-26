@@ -5,7 +5,6 @@ import com.example.domain.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -25,7 +24,7 @@ public class PostService {
         post.setTitle(title);
         post.setContent(content);
 
-        postRepository.save(post);
+//        postRepository.save(post);
     }
 
 
